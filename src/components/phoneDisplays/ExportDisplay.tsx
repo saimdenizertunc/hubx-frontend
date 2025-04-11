@@ -158,88 +158,8 @@ export function ExportDisplay() {
               </div>
             </div>
           </div>
-
-          <motion.div
-            className="absolute inset-0 bg-black/10"
-            animate={{
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
         </div>
       </motion.div>
-
-      <div className="w-full px-4 pb-2 mt-auto">
-        <div className="flex justify-between mb-2">
-          <motion.button
-            className="py-1 px-2 bg-red-500 rounded text-white text-xs flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-4 h-4 mr-1">
-              <img
-                src={pdfIcon}
-                alt="PDF"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            PDF
-          </motion.button>
-
-          <motion.button
-            className="py-1 px-2 bg-blue-500 rounded text-white text-xs flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-4 h-4 mr-1">
-              <img
-                src={jpgIcon}
-                alt="JPG"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            JPG
-          </motion.button>
-
-          <motion.button
-            className="py-1 px-2 bg-black/30 border border-white/30 rounded text-white text-xs flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            ZIP
-          </motion.button>
-
-          <motion.button
-            className="py-1 px-2 bg-blue-400 rounded text-white text-xs flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-4 h-4 mr-1">
-              <img
-                src={txtIcon}
-                alt="TXT"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            TXT
-          </motion.button>
-        </div>
-
-        <motion.div
-          className="w-full py-2 bg-red-500 rounded text-center text-white text-sm"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          Export Now
-        </motion.div>
-      </div>
     </motion.div>
   );
 }
