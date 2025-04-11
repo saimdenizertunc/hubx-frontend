@@ -129,8 +129,6 @@ export function MobilePreview() {
           </AnimatePresence>
         </div>
       </div>
-
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-gray-400 rounded-full"></div>
     </motion.div>
   );
 }
