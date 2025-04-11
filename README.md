@@ -16,6 +16,10 @@ Example implementation videos:
 https://drive.google.com/drive/folders/1kkicvHG7UMc-MY9npv_fy4gW1cZF3QiO?usp=drive_link
 ```
 
+## Demo
+
+Live demo: [https://poetic-concha-b7f451.netlify.app/](https://poetic-concha-b7f451.netlify.app/)
+
 ## Feature Showcase App
 
 This is a React application that showcases different features of a document scanner app with an interactive UI.
