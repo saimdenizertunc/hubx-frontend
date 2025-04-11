@@ -6,4 +6,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   plugins: [react()],
+  css: {
+    postcss: './postcss.config.js',
+  },
 });
