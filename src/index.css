@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-weight: 400;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-weight: 500;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-weight: 700;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-weight: 800;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-heavy-webfont.woff');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    max-width: 100%;
+    font-family: 'SF Pro Display', 'Source Sans 3', 'Source Sans Pro',
+      sans-serif;
+
+    @apply bg-background text-textDark;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold text-secondary;
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto w-full max-w-[1440px];
+  }
+
+  .section {
+    @apply w-full bg-sectionBg;
+  }
+
+  .nav-icon-container {
+    @apply w-[56px] h-[56px] rounded-full border bg-white flex items-center justify-center;
+  }
+
+  .nav-icon-container.active {
+    @apply border-primary;
+  }
+
+  .nav-icon-container:not(.active) {
+    @apply border-borderLight;
+  }
+
+  .nav-icon {
+    @apply w-8 h-8 transition-all;
+  }
+
+  .nav-icon.active {
+    @apply brightness-100 saturate-100;
+  }
+
+  .nav-icon:not(.active) {
+    @apply brightness-50 saturate-0;
+  }
+
+  .content-title {
+    @apply font-sans font-extrabold text-primary 
+      text-xs xs:text-sm sm:text-sm md:text-sm lg:text-base 
+      tracking-subtitle uppercase 
+      mb-1 xs:mb-1.5 sm:mb-2 md:mb-3 lg:mb-4 
+      text-center md:text-right;
+  }
+
+  .content-heading {
+    @apply font-sans font-bold 
+      text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl 
+      leading-tight text-secondary 
+      mb-2 xs:mb-3 sm:mb-4 md:mb-5 lg:mb-6 
+      text-center md:text-right;
+  }
+
+  .content-description {
+    @apply text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl 
+      leading-relaxed xs:leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed 
+      text-textDark 
+      text-center md:text-right;
+  }
+
+  .content-button {
+    @apply px-3 xs:px-3.5 sm:px-4 md:px-4 lg:px-5 py-1.5 xs:py-2 sm:py-2 md:py-2.5 lg:py-3
+      border border-borderLight rounded-sm 
+      text-xs xs:text-sm sm:text-sm md:text-base lg:text-lg 
+      text-secondary font-normal 
+      w-[100px] xs:w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] 
+      h-[36px] xs:h-[40px] sm:h-[44px] md:h-[48px] lg:h-[54px] 
+      hover:border-primary hover:shadow-primary-glow hover:scale-105 transition-all duration-300;
+  }
+
+  .phone-container {
+    position: relative;
+    z-index: 1;
+
+    width: 180px;
+    height: 360px;
+    margin-bottom: -20px;
+  }
+
+  .phone-frame {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .phone-content {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+
+    overflow: hidden;
+
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    margin: auto;
+  }
+
+  @media (width >= 375px) {
+    .phone-container {
+      width: 210px;
+      height: 420px;
+    }
+  }
+
+  @media (width >= 640px) {
+    .phone-container {
+      width: 250px;
+      height: 500px;
+    }
+  }
+
+  @media (width >= 768px) {
+    .phone-container {
+      width: 320px;
+      height: 640px;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .phone-container {
+      width: 365.42px;
+      height: 741px;
+    }
+  }
+}
+
+@layer utilities {
+  .max-w-container {
+    max-width: 1440px;
+  }
+
+  .animate-scan-pulse {
+    animation: scan-pulse 2s infinite;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  @keyframes scan-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+  }
+}
+
+.filter-primary {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(91%) saturate(2368%)
+    hue-rotate(194deg) brightness(100%) contrast(101%);
+}
+
+.filter-gray {
+  filter: brightness(0) saturate(100%) invert(44%) sepia(0%) saturate(0%)
+    hue-rotate(155deg) brightness(97%) contrast(91%);
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.5s ease-in-out forwards;
+}
