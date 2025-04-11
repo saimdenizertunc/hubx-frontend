@@ -1,34 +1,28 @@
 import React, { createContext, useState, useContext } from 'react';
+import { NavigationSection } from '../types';
 
 type NavigationContextType = {
-  activeSlide: number;
-  setActiveSlide: (index: number) => void;
-  direction: number;
+  activeSection: NavigationSection;
+  setActiveSection: (section: NavigationSection) => void;
 };
 
 const NavigationContext = createContext<NavigationContextType>({
-  activeSlide: 0,
-  setActiveSlide: () => {},
-  direction: 1,
+  activeSection: NavigationSection.SCANNER,
+  setActiveSection: () => {},
 });
 
 export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const handleSetActiveSlide = (index: number) => {
-    setDirection(index > activeSlide ? 1 : -1);
-    setActiveSlide(index);
-  };
+  const [activeSection, setActiveSection] = useState<NavigationSection>(
+    NavigationSection.SCANNER,
+  );
 
   return (
     <NavigationContext.Provider
       value={{
-        activeSlide,
-        setActiveSlide: handleSetActiveSlide,
-        direction,
+        activeSection,
+        setActiveSection,
       }}
     >
       {children}
@@ -36,4 +30,10 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const useNavigation = () => useContext(NavigationContext);
+export const useNavigation = () => {
+  const context = useContext(NavigationContext);
+  if (!context) {
+    throw new Error('useNavigation must be used within a NavigationProvider');
+  }
+  return context;
+};
