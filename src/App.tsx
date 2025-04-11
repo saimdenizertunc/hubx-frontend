@@ -1,9 +1,12 @@
+import { NavigationProvider } from './contexts/NavigationContext';
+import { Hero } from './components/Hero';
+import { Navigation } from './components/Navigation';
+
 export function App() {
   return (
-    <>
-      <header>
-        <h1>HubX Frontend Assignment</h1>
-      </header>
-    </>
+    <NavigationProvider>
+      <Hero />
+      <Navigation />
+    </NavigationProvider>
   );
 }
